@@ -3,7 +3,7 @@ players = ["Andrea", "Colton", "Ariana", "Kayla", "Anthony", "Destiny", "Jeanett
 "Jacque", "Kody", "Kaden", "Kason", "Ashley", "Oswald", "Clancy", "Gilbert", "Marvie", "Alan", "Craig",
 "Lexi", "Jack"]
 
-print("Welcome to Dodgeball!!")
+print("Welcome to Team/Player Allocator!!")
 
 while True:
     random.shuffle(players)
