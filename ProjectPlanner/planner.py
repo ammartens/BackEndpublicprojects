@@ -16,7 +16,7 @@ def read_tasks(filename):
         tasks[number] = Task(title, duration, prerequisites)
     return tasks
 
-tasks = read_tasks("project.csv")
+tasks = read_tasks("AppProject.csv")
 #print(tasks)
 
 def order_tasks(tasks):
@@ -49,12 +49,12 @@ def draw_chart(tasks, canvas, row_height=40, title_width=300, line_height=40, da
     for week_number in range(5):
         x = title_width + week_number * week_width
         canvas.create_line(x, 0, x, height, fill="gray")
-        canvas.create_text(x + week_width / 2, row_height / 2, text=f"Week {week_number+1}", font=("Helvetica", font_size, "bold"))
+        canvas.create_text(x + week_width / 2, row_height / 2, text=f"Week {week_number+1}", font=("swiss", font_size, "bold"))
         start_days = order_tasks(tasks)
         y = row_height
         for task_number in start_days:
             task = tasks[task_number]
-            canvas.create_text(title_indent, y + row_height / 2, text=task.title, anchor=tkinter.W, font=("Helvetica", font_size))
+            canvas.create_text(title_indent, y + row_height / 2, text=task.title, anchor=tkinter.W, font=("purisa", font_size))
             bar_x = title_width + start_days[task_number] * day_width
             bar_y = y + (row_height - bar_height) / 2
             bar_width = task.duration * day_width
@@ -76,9 +76,9 @@ root.title("Project Planner")
 root.resizable(width=False, height=False)
 button_frame = tkinter.Frame(root, padx=5, pady=5)
 button_frame.pack(side="top", fill="x")
-open_button = tkinter.Button(button_frame, text="Open Project..", command=open_project)
+open_button = tkinter.Button(button_frame, text="Open Project..", cursor="hand2", command=open_project)
 open_button.pack(side="left")
-clear_button = tkinter.Button(button_frame, text="Clear", command=clear_canvas)
+clear_button = tkinter.Button(button_frame, text="Clear", cursor="hand2", command=clear_canvas)
 clear_button.pack(side="left")
 filename_label = tkinter.Label(button_frame)
 filename_label.pack(side="right")
